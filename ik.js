@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Ganti ke false kalau mau matikan iklan
-    const ADS_ENABLED = true;
+    const ADS_ENABLED =true;
 
     if (!ADS_ENABLED) return;
 
@@ -45,4 +45,5 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     document.body.insertAdjacentHTML("beforeend", adHtml);
 });
+
 
