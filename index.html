@@ -1,209 +1,553 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ahlicinta.id — Belajar Hubungan, Romansa & Pernikahan</title>
-  <meta name="description" content="ahlicinta.id: Belajar hubungan manusia, romansa, percintaan, pernikahan, dan solusi praktis untuk masalah hubungan." />
-  <style>
-    :root{--bg:#faf8f6;--card:#ffffff;--muted:#6b7280;--accent:#d97706;--accent-dark:#b45309}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg);color:#111827}
-    header{background:linear-gradient(90deg, rgba(217,119,6,0.06), rgba(180,83,9,0.02));padding:40px 20px}
-    .container{max-width:1100px;margin:0 auto}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
-    h1{margin:6px 0 0;font-size:28px}
-    p.lead{margin:8px 0 18px;color:var(--muted);font-size:16px}
-    nav{margin-top:14px}
-    nav a{margin-right:14px;color:var(--muted);text-decoration:none}
-    .hero{display:flex;gap:30px;align-items:center;justify-content:space-between}
-    .hero .left{flex:1}
-    .hero .cta{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
-    main{padding:26px 20px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
-    .tag{font-size:12px;color:var(--accent);font-weight:700}
-    section h2{margin:0 0 10px}
-    footer{padding:30px 20px;background:#fff;margin-top:26px;border-top:1px solid #eee}
-    @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column;align-items:flex-start}}
-    @media (max-width:600px){.grid{grid-template-columns:1fr}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteID - Catatan Inspiratif untuk Keluarga, Kuliner, dan Belajar</title>
+    <style>
+        /* Reset dan dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f9f7f7"/><path d="M0 0L100 100M100 0L0 100" stroke="%23e0e0e0" stroke-width="1"/></svg>');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff7e5f;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #ff6b4a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        /* Kategori Section */
+        .categories {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #6a11cb;
+        }
+        
+        .category-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .category-card p {
+            color: #666;
+        }
+        
+        /* Artikel Unggulan */
+        .featured {
+            padding: 3rem 0;
+            background-color: #f0f4f8;
+            border-radius: 30px;
+            margin: 3rem 0;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-content h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .article-content p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #6a11cb;
+            text-decoration: underline;
+        }
+        
+        /* Tentang Kami */
+        .about {
+            padding: 3rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .about-image {
+            background-color: #e0e0e0;
+            height: 300px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #ff7e5f;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #ff7e5f;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="brand">
-        <div class="logo">AC</div>
-        <div>
-          <h1>ahlicinta.id</h1>
-          <p class="lead">Belajar tentang hubungan manusia — romansa, percintaan, pernikahan, dan segala solusi hubungan yang realistis dan penuh empati.</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>📝</span> NoteID
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Keluarga</a></li>
+                        <li><a href="#">Kuliner</a></li>
+                        <li><a href="#">Belajar</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu">☰</div>
+            </div>
         </div>
-      </div>
-      <nav>
-        <a href="#tentang">Tentang</a>
-        <a href="#topik">Topik</a>
-        <a href="#artikel">Artikel</a>
-        <a href="#layanan">Layanan</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="left">
-        <h2>Selamat datang di ahlicinta.id</h2>
-        <p class="lead">Kami membantu siapa saja yang ingin memahami hubungan manusia dengan lebih baik — dari jatuh cinta, membangun komitmen, memperbaiki konflik, hingga merawat kebahagiaan jangka panjang dalam pernikahan. Di sini Anda menemukan panduan praktis, refleksi emosional, dan strategi yang bisa langsung diterapkan.</p>
-        <a class="cta" href="#topik">Mulai Belajar</a>
-      </div>
-      <div class="right" style="flex:0 0 360px">
-        <div class="card">
-          <div class="tag">Tes Cepat</div>
-          <h3 style="margin-top:6px">Apakah hubunganmu sehat?</h3>
-          <p style="color:var(--muted)">Ikuti tes singkat kami untuk mengecek aspek komunikasi, kepercayaan, kebersamaan, dan batasan pribadi. Hanya perlu 5 menit.</p>
-          <a href="#" style="display:inline-block;margin-top:8px;text-decoration:none;color:var(--accent);font-weight:700">Mulai Tes →</a>
+        <div class="container">
+            <h1>Selamat Datang di NoteID</h1>
+            <p>Platform inspiratif untuk keluarga Indonesia dengan beragam konten menarik seputar kehidupan keluarga, resep kuliner lezat, tips belajar efektif, dan pengetahuan umum yang bermanfaat.</p>
+            <a href="#" class="cta-button">Jelajahi Konten</a>
         </div>
-      </div>
     </section>
 
-    <section id="tentang" style="margin-top:22px">
-      <div class="card">
-        <h2>Tentang ahlicinta.id</h2>
-        <p style="color:var(--muted)">ahlicinta.id lahir dari kebutuhan nyata: banyak orang mengalami kebingungan dalam urusan hati karena kurangnya pengetahuan yang praktis dan mudah diterapkan. Kami menggabungkan hasil penelitian psikologi hubungan, pengalaman konselor, dan kisah nyata untuk membuat panduan yang hangat, non-judgmental, dan solutif.</p>
-
-        <h3 style="margin-top:14px">Misi Kami</h3>
-        <p style="color:var(--muted)">Membantu individu dan pasangan memahami diri sendiri dan pasangan mereka, memperkuat ikatan emosional, serta membekali mereka dengan keterampilan komunikasi, manajemen konflik, dan perencanaan bersama untuk masa depan yang lebih stabil dan memuaskan.</p>
-
-        <h3 style="margin-top:12px">Nilai Inti</h3>
-        <ul style="color:var(--muted)">
-          <li>Empati: mendengarkan tanpa menghakimi.</li>
-          <li>Praktis: solusi yang bisa dicoba sehari-hari.</li>
-          <li>Ilmiah: berdasar riset dan praktik klinis ketika relevan.</li>
-          <li>Inklusif: untuk semua orientasi dan latar belakang.</li>
-        </ul>
-      </div>
+    <!-- Kategori Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Utama</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Keluarga</h3>
+                    <p>Tips membangun hubungan harmonis, pengasuhan anak, dan aktivitas seru untuk keluarga.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🍳</div>
+                    <h3>Kuliner</h3>
+                    <p>Resep masakan rumahan, tips memasak, dan informasi seputar makanan sehat untuk keluarga.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📚</div>
+                    <h3>Belajar</h3>
+                    <p>Materi pembelajaran, tips belajar efektif, dan pengetahuan umum untuk semua usia.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💡</div>
+                    <h3>Pengetahuan Umum</h3>
+                    <p>Fakta menarik, informasi berguna, dan wawasan baru untuk memperkaya pengetahuan Anda.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="topik" style="margin-top:18px">
-      <h2>Topik Utama</h2>
-      <div class="grid" style="margin-top:12px">
-        <div class="card">
-          <div class="tag">Romansa</div>
-          <h3>Membangun Ketertarikan Sehat</h3>
-          <p style="color:var(--muted)">Membedah dinamika ketertarikan: apa yang membuat kita tertarik, bagaimana menghindari obsesi, dan cara mengembangkan daya tarik yang tulus tanpa kehilangan identitas diri.</p>
+    <!-- Artikel Unggulan -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Artikel Unggulan</h2>
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image" style="background-color: #a8e6cf;"></div>
+                    <div class="article-content">
+                        <h3>Ayah, Ayo Terlibat dalam Pengasuhan Anak</h3>
+                        <p>Peran ayah dalam pengasuhan anak sangat penting untuk perkembangan emosional dan kognitif anak. Artikel ini membahas cara ayah dapat lebih terlibat aktif dalam kehidupan sehari-hari anak-anak mereka.</p>
+                        <a href="https://noteid.solusijodoh.com/ayah-ayo" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-color: #dcedc1;"></div>
+                    <div class="article-content">
+                        <h3>Dasar-Dasar PHP untuk Pemula</h3>
+                        <p>PHP adalah bahasa pemrograman server-side yang populer untuk pengembangan web. Pelajari konsep dasar PHP mulai dari sintaks dasar hingga pembuatan aplikasi web sederhana.</p>
+                        <a href="https://noteid.solusijodoh.com/dasar-php" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-color: #ffd3b6;"></div>
+                    <div class="article-content">
+                        <h3>Dua Atom Hidrogen dan Satu Oksigen</h3>
+                        <p>Mengenal molekul air (H2O) yang menjadi sumber kehidupan di bumi. Artikel ini menjelaskan sifat-sifat unik air dan perannya dalam kehidupan sehari-hari serta ekosistem.</p>
+                        <a href="https://noteid.solusijodoh.com/dua-atom" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image" style="background-color: #ffaaa5;"></div>
+                    <div class="article-content">
+                        <h3>Cara Menjadi Lebih Bahagia dalam Kehidupan Sehari-hari</h3>
+                        <p>Kebahagiaan adalah tujuan banyak orang, tetapi seringkali sulit dipertahankan. Temukan strategi praktis untuk meningkatkan kebahagiaan Anda melalui perubahan kecil dalam rutinitas harian.</p>
+                        <a href="https://noteid.solusijodoh.com/lebih-bahagia" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <div class="tag">Komunikasi</div>
-          <h3>Dialog yang Menguatkan</h3>
-          <p style="color:var(--muted)">Teknik komunikasi efektif: bicara jujur tanpa menyakiti, mendengar aktif, dan menegosiasikan kebutuhan sehari-hari serta rencana jangka panjang.</p>
-        </div>
-        <div class="card">
-          <div class="tag">Konflik</div>
-          <h3>Menyelesaikan Pertengkaran</h3>
-          <p style="color:var(--muted)">Cara meredakan amarah, menghindari pola menyakiti berulang, dan membangun rekonsiliasi yang sehat setelah konflik.</p>
-        </div>
-        <div class="card">
-          <div class="tag">Pernikahan</div>
-          <h3>Perencanaan & Perawatan Pernikahan</h3>
-          <p style="color:var(--muted)">Dari persiapan pra-nikah sampai pemeliharaan hubungan setelah menikah: keuangan, peran, harapan, dan tanggung jawab emosional.</p>
-        </div>
-        <div class="card">
-          <div class="tag">Percintaan</div>
-          <h3>Cinta & Move On</h3>
-          <p style="color:var(--muted)">Mengenali tanda hubungan yang sehat, memproses patah hati, dan langkah-langkah praktis untuk pulih dan membuka diri lagi.</p>
-        </div>
-        <div class="card">
-          <div class="tag">Kesehatan Emosional</div>
-          <h3>Self-Love & Batasan</h3>
-          <p style="color:var(--muted)">Mengajarkan cinta pada diri sendiri, menjaga batasan sehat, dan tidak mengorbankan identitas demi hubungan.</p>
-        </div>
-      </div>
     </section>
 
-    <section id="artikel" style="margin-top:22px">
-      <h2>Artikel & Panduan Populer</h2>
-      <div class="grid" style="margin-top:12px">
-        <div class="card">
-          <h3>10 Bahasa Cinta yang Harus Dipahami Pasangan</h3>
-          <p style="color:var(--muted)">Ringkasan praktis bahasa cinta—kapan memberi waktu, pujian, pelayanan, sentuhan, atau hadiah—dan bagaimana menyesuaikannya agar pasangan merasa dicintai.</p>
+    <!-- Tentang Kami -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang NoteID</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Platform Inspiratif untuk Keluarga Indonesia</h2>
+                    <p>NoteID hadir sebagai wadah berbagi pengetahuan dan pengalaman untuk keluarga Indonesia. Kami percaya bahwa setiap keluarga memiliki cerita unik dan berharga yang patut dibagikan.</p>
+                    <p>Dengan fokus pada topik keluarga, kuliner, dan pendidikan, NoteID menyajikan konten yang relevan dengan kehidupan sehari-hari. Mulai dari tips pengasuhan anak, resep masakan rumahan yang lezat, hingga materi belajar untuk semua usia.</p>
+                    <p>Kami berkomitmen untuk menyajikan konten yang berkualitas, mudah dipahami, dan dapat diaplikasikan dalam kehidupan nyata. Setiap artikel ditulis dengan penuh pertimbangan untuk memastikan keakuratan informasi dan relevansi dengan konteks Indonesia.</p>
+                    <p>NoteID tidak hanya sekadar platform berbagi informasi, tetapi juga komunitas yang mendukung perkembangan keluarga Indonesia. Kami mengajak pembaca untuk berpartisipasi aktif dengan berbagi pengalaman dan pengetahuan mereka.</p>
+                </div>
+                <div class="about-image" style="background-color: #b8e0d2;"></div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Langkah-Langkah Move On Tanpa Trauma</h3>
-          <p style="color:var(--muted)">Strategi sehari-hari untuk memproses kehilangan, memori berlebihan, dan membangun rutinitas baru yang sehat.</p>
-        </div>
-        <div class="card">
-          <h3>Keuangan Pasutri: Dari Nabung Sampai Investasi Bersama</h3>
-          <p style="color:var(--muted)">Panduan praktis mengatur keuangan bersama, menghindari konflik, dan merencanakan tujuan finansial jangka panjang.</p>
-        </div>
-      </div>
-
-      <p style="margin-top:12px;color:var(--muted)">Setiap artikel dilengkapi langkah praktis, checklist, dan latihan komunikatif yang bisa dilakukan pasangan dalam 7–30 hari untuk melihat perubahan nyata.</p>
     </section>
 
-    <section id="layanan" style="margin-top:22px">
-      <h2>Layanan</h2>
-      <div class="grid" style="margin-top:12px">
-        <div class="card">
-          <h3>Konsultasi Privat</h3>
-          <p style="color:var(--muted)">Sesi privat via chat atau video dengan konselor hubungan berpengalaman untuk membahas masalah spesifik dalam hubungan Anda.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>NoteID</h3>
+                    <p>Platform inspiratif untuk keluarga Indonesia dengan beragam konten menarik seputar kehidupan keluarga, resep kuliner lezat, tips belajar efektif, dan pengetahuan umum.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Kategori</h3>
+                    <ul>
+                        <li><a href="#">Keluarga</a></li>
+                        <li><a href="#">Kuliner</a></li>
+                        <li><a href="#">Belajar</a></li>
+                        <li><a href="#">Pengetahuan Umum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Kontak</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Artikel Populer</h3>
+                    <ul>
+                        <li><a href="https://noteid.solusijodoh.com/ayah-ayo">Ayah, Ayo Terlibat</a></li>
+                        <li><a href="https://noteid.solusijodoh.com/dasar-php">Dasar-Dasar PHP</a></li>
+                        <li><a href="https://noteid.solusijodoh.com/dua-atom">Dua Atom Hidrogen</a></li>
+                        <li><a href="https://noteid.solusijodoh.com/lebih-bahagia">Menjadi Lebih Bahagia</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 NoteID. Semua Hak Dilindungi.</p>
+            </div>
         </div>
-        <div class="card">
-          <h3>Workshop & Kursus</h3>
-          <p style="color:var(--muted)">Workshop komunikasi, persiapan pra-nikah, dan kelas penguatan pasangan yang interaktif dan berbasis praktik.</p>
-        </div>
-        <div class="card">
-          <h3>Program 30 Hari</h3>
-          <p style="color:var(--muted)">Program bertahap yang membantu pasangan membangun rutinitas kebersamaan, meningkatkan keintiman, dan menyusun tujuan bersama.</p>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <section id="kontak" style="margin-top:22px">
-      <div class="card">
-        <h2>Kontak & Bergabung</h2>
-        <p style="color:var(--muted)">Punya pertanyaan, ingin konsultasi, atau mau bekerja sama? Hubungi kami.</p>
-        <p style="margin-top:8px">Email: <strong>halo@ahlicinta.id</strong></p>
-        <p>Instagram: <strong>@ahlicinta_id</strong> • Telegram: <strong>@ahlicinta_chat</strong></p>
-        <p style="color:var(--muted);margin-top:8px">Langganan newsletter mingguan kami untuk tips singkat, latihan mingguan, dan artikel terbaru tentang hubungan.</p>
-        <form style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-          <input type="email" placeholder="Email kamu" style="flex:1;padding:10px;border-radius:8px;border:1px solid #eee" />
-          <button style="padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:white;font-weight:700">Berlangganan</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>
-        <strong>ahlicinta.id</strong>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">Membantu membangun hubungan yang sehat, dewasa, dan penuh kasih.</div>
-      </div>
-      <div style="color:var(--muted);font-size:13px">© 2025 ahlicinta.id — Semua hak dilindungi</div>
-    </div>
-  </footer>
+    <script>
+        // Script sederhana untuk menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
 <script src="/ik.js"></script>
 <div class="related"><h3>Related Posts</h3><ul>
-<li><a href="/kompendium">Kompendium</a></li>
-<li><a href="/komplementaritas">Komplementaritas</a></li>
-<li><a href="/kompilator">Kompilator</a></li>
-<li><a href="/komposisi-tubuh">Komposisi Tubuh</a></li>
-<li><a href="/komplotan">Komplotan</a></li>
-<li><a href="/kompet">Kompet</a></li>
-<li><a href="/kompos-cair">Kompos Cair</a></li>
-<li><a href="/komprang">Komprang</a></li>
-<li><a href="/kompes">Kompes</a></li>
-<li><a href="/kompeni">Kompeni</a></li>
-<li><a href="/komposisi-visual">Komposisi Visual</a></li>
-<li><a href="/komprador">Komprador</a></li>
-<li><a href="/kocar-kacir-1">Kocar Kacir 1</a></li>
-<li><a href="/kompiler">Kompiler</a></li>
-<li><a href="/kompor-portabel">Kompor Portabel</a></li>
-<li><a href="/kompong">Kompong</a></li>
-<li><a href="/kobokan-1">Kobokan 1</a></li>
-<li><a href="/komplet">Komplet</a></li>
-<li><a href="/kocokan-1">Kocokan 1</a></li>
+<li><a href="/nonong">Nonong</a></li>
+<li><a href="/nongol">Nongol</a></li>
+<li><a href="/non-sequitur">Non Sequitur</a></li>
+<li><a href="/nonagon">Nonagon</a></li>
+<li><a href="/nonelektrolit">Nonelektrolit</a></li>
+<li><a href="/nonol">Nonol</a></li>
+<li><a href="/non-scholae-sed-vitae-discimus">Non Scholae Sed Vitae Discimus</a></li>
 </ul></div>
+<div style="text-align:center; margin:30px 0;"><a href="/" style="text-decoration:none; font-size:18px;">🏠 Kembali ke Homepage</a></div>
 </body>
 </html>
